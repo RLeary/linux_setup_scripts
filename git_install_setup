@@ -1,0 +1,13 @@
+#!/bin/bash/
+
+# Bash script for installing and seting up Git on a new install
+# Run as superuser
+
+sudo apt-get install git
+
+cd ~
+mkdir git
+
+git config --global user.email "ruaraidh@live.com"
+git config --global user.name "Ruaraidh Leary"
+git config --global core.editor "emacs24"
