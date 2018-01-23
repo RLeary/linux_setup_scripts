@@ -1,4 +1,4 @@
-#!/bin/bash/
+#!/bin/bash
 
 # Bash script for installing and seting up Git on a new install
 # Run as superuser
