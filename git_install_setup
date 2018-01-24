@@ -5,7 +5,7 @@
 
 sudo apt-get install git
 
-cd ~
+cd ~ || exit
 mkdir git
 
 git config --global user.email "ruaraidh@live.com"
