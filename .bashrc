@@ -93,6 +93,10 @@ alias raspi='shh ruaraidh@rapsi'
 alias createpword='openssl rand -base64 12 >~/password'
 # Search processes
 alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+# Start VPN
+alias vpns='sudo ipsec up NordVPN'
+# Close VPN
+alias vpnc='sudo ipsec down NordVPN'
 
 
 # Typo aliases
