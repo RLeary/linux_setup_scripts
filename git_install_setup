@@ -3,7 +3,8 @@
 # Bash script for installing and seting up Git on a new install
 # Run as superuser
 
-sudo apt-get install git
+sudo apt-get update
+sudo apt-get install -y git
 
 cd ~ || exit
 mkdir git

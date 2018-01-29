@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Script to help set up a fresh install
+# Install programs, utilities, and libraries
+# Debian based, uses apt
+
+# Update repository list then upgrade installed programs
+sudo apt-get update
+sudo apt-get upgrade
+
+# Remove cdrom from sources.list
+sudo sed -i '/cdrom/d' /etc/apt/sources.list
+
+# Install text editors
+sudo apt-get install -y emacs24 vim
+
+# Install compilers - c c++ java python haskell
+sudo apt-get install -y gcc g++ openjdk-8-jdk python ghc
+
+# Install debuggers
+sudo apt-get install -y dgb ddd valgrind
+
+# Install Git
+sudo apt-get install -y git
+
+# Install programs && utilities for VPN
+sudo apt-get install strongswan strongswan-plugin-eap-mschapv2 strongswan-ikev2 libstrongswan-standard-plugins
+
+# Install general programs/not categorised yet
+sudo apt-get install mplayer mplayer-gui evince filezilla virtualbox chromium browser lynx shellcheck qbittorrent texlive-full dia xfig cabal-install
