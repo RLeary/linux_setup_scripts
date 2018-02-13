@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Change the package manager in the post_install script, keeping it here to be
+# lazy in the future
+
+sed -i s/apt-get/yum/ post_install_centos

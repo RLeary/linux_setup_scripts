@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Script to help set up a fresh install
+# Install programs, utilities, and libraries
+# Has more network tools, fewer general use pgrograms than my Debain systems
+# Centos Version
+
+# Update repository list then upgrade installed programs
+sudo yum update
+
+# Install text editors
+sudo yum install -y emacs24 vim
+
+# Yum Development Tools group
+yum groupinstall -y 'Development Tools'
+
+# Install Git
+sudo yum install -y git
+
+# Install programs && utilities for VPN
+sudo yum install -y strongswan strongswan-plugin-eap-mschapv2 strongswan-ikev2 libstrongswan-standard-plugins
+
+# Install network tools && utilites
+sudo yum install -y traceroute nmap tcpdump wget curl
+
+# Install general programs/not categorised yet
+sudo yum install -y mplayer mplayer-gui evince filezilla virtualbox chromium-browser lynx shellcheck texlive-full dia xfig cabal-install
