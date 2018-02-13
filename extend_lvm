@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Increase the size of a LVM partition, pass the size as the 1st argument when
+# running the script
+
+GROUPNAME=newgroup
+VOLNAME=newvol
+SIZE=$1
+
+# Extend partition
+lvextend -L +"$SIZE"G $GROUPNAME/$VOLNAME
+
+# Resize filesystem
+resize2fs /dev/$GROUPNAME/$VOLNAME

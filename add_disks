@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Used to setup disks on a virtual machine running CentOS for a Unix
+# admin class at university
+# Adds two identical disks to the system, then run this script.
+
+# Pass the size of the volume as the 1st parameter, the groupname as the 2nd, 
+# and the volume name as the 3rd
+
+su
+
+# Name for the volume group and the volume on the group
+GROUPNAME=$2
+VOLNAME=$3
+
+# Size of volme for use in lvcreate, number then K/M/G/
+VOLSIZE=$1G
+
+# Create LVM partition on each disk
+# Multiple printf() statements used to increase readability and make it easier
+# to modify
+{
+printf "n\n" # New partition
+printf "p\n" # Primary partition
+printf "1\n" # Create as first partition
+printf "\n\n" # First and last sector accept default
+printf "t\n" # Select automatically
+printf "8e\n" # LVM
+printf "w\n" # Write
+} | fdisk /dev/sdb
+
+{
+printf "n\n" # New partition
+printf "p\n" # Primary partition
+printf "1\n" # Create as first partition
+printf "\n\n" # First and last sector accept default
+printf "t\n" # Select automatically
+printf "8e\n" # LVM
+printf "w\n" # Write
+} | fdisk /dev/sdc
+
+# Create LVM physival volume
+pvcreate /dev/sdb1
+pvcreate /dev/sdc1
+
+# Create volume group
+vgcreate $GROUPNAME /dev/sdb1 /dev/sdc1
+
+# Create volume on top of group, of size 1GB
+lvcreate -L $VOLSIZE -n $VOLNAME $GROUPNAME
+
+# Format with ext4 filesystem
+mkfs -t ext4 -m 1 /dev/$GROUPNAME/$VOLNAME
+
+# Mount point and mount
+mkdir /mnt/lvm
+mount /dev/$GROUPNAME/$VOLNAME /mnt/lvm
+
+# Put some data into it
+dd if=/dev/zero of=/mnt/lvm/trash.img bs=1 count=0 seek=1G
