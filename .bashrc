@@ -86,7 +86,7 @@ alias shellcheck='~/.cabal/bin/shellcheck'
 # Caclulator, python shell with maths libraries for correct integer division
 alias calc='python -ic "from __future__ import division; from math import *"'
 # Show what is using disk space, larger files first
-alias diskspace="du -S | sort -n -r |more"
+alias diskspace="du -S | sort -n -r | less"
 # SSH into home server
 alias raspi='shh ruaraidh@rapsi'
 # Generate a random password, writes to passowrd file in home
