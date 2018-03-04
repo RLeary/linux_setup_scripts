@@ -27,4 +27,4 @@ sudo apt-get install -y git
 sudo apt-get install -y strongswan strongswan-plugin-eap-mschapv2 strongswan-ikev2 libstrongswan-standard-plugins
 
 # Install general programs/not categorised yet
-sudo apt-get install -y mplayer mplayer-gui evince filezilla virtualbox chromium-browser lynx shellcheck qbittorrent texlive-full dia xfig cabal-install cowsay wget mysql-client-core-5.6 darktable xpdf
+sudo apt-get install -y mplayer mplayer-gui evince filezilla virtualbox chromium-browser lynx shellcheck qbittorrent texlive-full dia xfig cabal-install cowsay wget mysql-client-core-5.6 darktable xpdf freecad
